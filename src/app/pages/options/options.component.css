@@ -1,0 +1,10 @@
+.card {
+    margin: 20px;
+    float: none;
+}
+
+.btn-primary{
+    background-color: #005E62;
+    border-bottom-color: #005E62;
+    border-color: #005E62;
+}
