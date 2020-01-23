@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-body test-primary">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Image profile</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Cellphone number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Callsing</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Job</th>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Dependency</th>
+                    <th scope="col">Type device</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td><img src="assets/DefaultProfile2.png" class="img-profile"></td>
+                    <td>{{user.uuidUser}} </td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.name}} </td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.callSing}}</td>
+                    <td>{{user.uuidEmail}}</td>
+                    <td>{{user.uuidJob}}</td>
+                    <td>{{user.rank}}</td>
+                    <td>{{user.dependency}}</td>
+                    <td>{{user.typeDevice}}</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
