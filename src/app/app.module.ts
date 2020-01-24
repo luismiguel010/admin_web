@@ -10,10 +10,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './pages/users/users.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { InsertImeiModalComponent } from './modals/insert-imei-modal/insert-imei-modal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/users', pathMatch: 'full'},
   {path: 'users', component: UsersComponent},
+  {path: 'insert_imei_modal', component: InsertImeiModalComponent},
   {path: 'options', component: OptionsComponent}
 ];
 
@@ -24,6 +26,7 @@ const routes: Routes = [
     UsersComponent,
     HeaderComponent,
     FooterComponent,
+    InsertImeiModalComponent,
   ],
   imports: [
     BrowserModule,
