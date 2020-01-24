@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './services/users.service';
+import { InsertImeiModalService } from './services/insert-imei-modal.service';
 
 import { AppComponent } from './app.component';
-import { OptionsComponent } from './pages/options/options.component';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './pages/users/users.component';
@@ -23,7 +23,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    OptionsComponent,
     UsersComponent,
     HeaderComponent,
     FooterComponent,
@@ -37,7 +36,8 @@ const routes: Routes = [
     FormsModule
   ],
   providers: [
-    UsersService
+    UsersService,
+    InsertImeiModalService
   ],
   bootstrap: [AppComponent]
 })

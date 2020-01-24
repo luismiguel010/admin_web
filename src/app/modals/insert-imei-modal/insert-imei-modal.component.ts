@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Imei } from './imei';
+import { InsertImeiModalService } from '../../services/insert-imei-modal.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-insert-imei-modal',
@@ -10,14 +12,16 @@ export class InsertImeiModalComponent implements OnInit {
 
   private imei: Imei = new Imei()
 
-  constructor() { }
+  constructor(private imeiService: InsertImeiModalService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
   public insertImei(): void{
-    console.log("Clicked!")
-    console.log(this.imei)
+    this.imeiService.insertImei(this.imei).subscribe(
+      responde => this.router.navigate(['/users'])
+    )
   }
 
 }
