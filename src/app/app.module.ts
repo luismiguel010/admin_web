@@ -11,12 +11,13 @@ import { UsersComponent } from './pages/users/users.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InsertImeiModalComponent } from './modals/insert-imei-modal/insert-imei-modal.component';
+import { UpdateImeiModalComponent } from './modals/update-imei-modal/update-imei-modal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/users', pathMatch: 'full'},
   {path: 'users', component: UsersComponent},
   {path: 'insert_imei_modal', component: InsertImeiModalComponent},
-  {path: 'options', component: OptionsComponent}
+  {path: 'update_imei_modal', component: UpdateImeiModalComponent},
 ];
 
 @NgModule({
@@ -27,6 +28,7 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     InsertImeiModalComponent,
+    UpdateImeiModalComponent,
   ],
   imports: [
     BrowserModule,

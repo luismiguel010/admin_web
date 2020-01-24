@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Imei } from './imei';
 
 @Component({
   selector: 'app-insert-imei-modal',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsertImeiModalComponent implements OnInit {
 
+  private imei: Imei = new Imei()
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public insertImei(): void{
+    console.log("Clicked!")
+    console.log(this.imei)
   }
 
 }
