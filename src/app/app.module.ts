@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InsertImeiModalComponent } from './modals/insert-imei-modal/insert-imei-modal.component';
 import { UpdateImeiModalComponent } from './modals/update-imei-modal/update-imei-modal.component';
+import { UpdateImeiModalService } from './services/update-imei-modal.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/users', pathMatch: 'full'},
@@ -37,7 +38,8 @@ const routes: Routes = [
   ],
   providers: [
     UsersService,
-    InsertImeiModalService
+    InsertImeiModalService,
+    UpdateImeiModalService
   ],
   bootstrap: [AppComponent]
 })
