@@ -1,0 +1,7 @@
+{
+    "/admin/*": {
+        "target": "http://192.168.9.57:8085",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

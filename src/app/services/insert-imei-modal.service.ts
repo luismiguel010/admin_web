@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class InsertImeiModalService {
 
-  private urlEndPoint: string = 'http://192.168.9.57:8085/admin/insertImei';
+  private urlEndPoint: string = '/admin/insertImei';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
