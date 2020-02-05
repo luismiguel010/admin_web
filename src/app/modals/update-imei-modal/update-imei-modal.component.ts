@@ -10,8 +10,8 @@ import { Router } from '@angular/router'
 })
 export class UpdateImeiModalComponent implements OnInit {
 
-  private updateImeiDTO: UpdateImeiDTO = new UpdateImeiDTO();
-
+  public updateImeiDTO: UpdateImeiDTO = new UpdateImeiDTO();
+ 
   constructor(private updateImeiService: UpdateImeiModalService,
     private router: Router) { }
 

@@ -10,7 +10,7 @@ import { Router } from '@angular/router'
 })
 export class InsertImeiModalComponent implements OnInit {
 
-  private imei: Imei = new Imei()
+  public imei: Imei = new Imei()
 
   constructor(private imeiService: InsertImeiModalService,
     private router: Router) { }
