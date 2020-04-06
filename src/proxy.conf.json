@@ -1,6 +1,6 @@
 {
     "/admin/*": {
-        "target": "http://192.168.9.57:8085",
+        "target": "http://181.129.28.178:8099/quemes/msadmin",
         "secure": false,
         "logLevel": "debug"
     }
