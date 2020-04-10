@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Imei } from './imei';
 import { InsertImeiModalService } from '../../services/insert-imei-modal.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-insert-imei-modal',
@@ -19,8 +20,11 @@ export class InsertImeiModalComponent implements OnInit {
   }
 
   public insertImei(): void{
-    this.imeiService.insertImei(this.imei).subscribe(
-      responde => this.router.navigate(['/users'])
+    this.imeiService.insertImei(this.imei)
+    .subscribe(responde => {
+      this.router.navigate(['/users'])
+      swal.fire('Imei inserted', 'Imei insert with success', 'success')
+      }
     )
   }
 
