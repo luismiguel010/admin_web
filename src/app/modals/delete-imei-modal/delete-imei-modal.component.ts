@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Imei } from './imei';
 import { DeleteImeiModalService } from '../../services/delete-imei-modal.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-delete-imei-modal',
@@ -20,7 +21,10 @@ export class DeleteImeiModalComponent implements OnInit {
 
   public deleteImei(): void{
     this.imeiService.deleteImei(this.imei).subscribe(
-      response => this.router.navigate(['/users'])
+      response => {
+        this.router.navigate(['/users'])
+        swal.fire('Imei deleted', 'Imei deleted with success','success')
+      }
     )
   }
 
