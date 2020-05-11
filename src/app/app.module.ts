@@ -15,13 +15,15 @@ import { InsertImeiModalComponent } from './modals/insert-imei-modal/insert-imei
 import { UpdateImeiModalComponent } from './modals/update-imei-modal/update-imei-modal.component';
 import { UpdateImeiModalService } from './services/update-imei-modal.service';
 import { DeleteImeiModalComponent } from './modals/delete-imei-modal/delete-imei-modal.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/users', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'users', component: UsersComponent},
   {path: 'insert_imei_modal', component: InsertImeiModalComponent},
   {path: 'update_imei_modal', component: UpdateImeiModalComponent},
-  {path: 'delete_imei_modal', component: DeleteImeiModalComponent}
+  {path: 'delete_imei_modal', component: DeleteImeiModalComponent},
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
@@ -33,6 +35,7 @@ const routes: Routes = [
     InsertImeiModalComponent,
     UpdateImeiModalComponent,
     DeleteImeiModalComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
