@@ -12,20 +12,27 @@ import swal from 'sweetalert2'
 export class UpdateImeiModalComponent implements OnInit {
 
   public updateImeiDTO: UpdateImeiDTO = new UpdateImeiDTO();
- 
+
   constructor(private updateImeiService: UpdateImeiModalService,
     private router: Router) { }
 
   ngOnInit() {
   }
 
-  public updateImei(): void{
-    this.updateImeiService.updateImei(this.updateImeiDTO)
-    .subscribe(response => {
-      this.router.navigate(['/users'])
-      swal.fire('Imei update', 'Imei update with success', 'success')
+  public updateImei(): void {
+
+    console.log(this.updateImeiDTO);
+    if (this.updateImeiDTO.username == null || this.updateImeiDTO.newImei == null) {
+      swal.fire('Error al actualizar imei', 'Nuevo imei o número de celular vacíos', 'error')
+      return;
     }
-    )
+
+    this.updateImeiService.updateImei(this.updateImeiDTO)
+      .subscribe(response => {
+        this.router.navigate(['/users'])
+        swal.fire('Imei actualizado', 'Imei actualizado con éxito', 'success')
+      }
+      )
   }
 
 }
