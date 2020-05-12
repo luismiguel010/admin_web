@@ -22,17 +22,17 @@ export class InsertImeiModalComponent implements OnInit {
   public insertImei(): void{
     console.log(this.imei);
     if(this.imei.imeiDevice == null){
-      swal.fire('Error insert', 'Imei empty', 'error')
+      swal.fire('Error insert', 'Campo de imei vacío', 'error')
       return;
     }
 
     this.imeiService.insertImei(this.imei)
     .subscribe(responde => {
       this.router.navigate(['/users'])
-      swal.fire('Imei inserted', 'Imei insertado con éxito', 'success')
+      swal.fire('Imei insertado', 'Imei insertado con éxito', 'success')
       },err => {
         if(err.status == 500){
-          swal.fire('Error insert imei', 'Es posible que el imei ya exista', 'error')
+          swal.fire('Error al insertar imei', 'Es posible que el imei ya exista', 'error')
         }
       }
     )

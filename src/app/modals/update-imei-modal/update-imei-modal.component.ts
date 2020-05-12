@@ -31,6 +31,10 @@ export class UpdateImeiModalComponent implements OnInit {
       .subscribe(response => {
         this.router.navigate(['/users'])
         swal.fire('Imei actualizado', 'Imei actualizado con éxito', 'success')
+      },err => {
+        if(err.status == 500){
+          swal.fire('Error al actualizar imei', 'Es posible que el imei a actualizar ya exista', 'error')
+        }
       }
       )
   }
