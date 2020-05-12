@@ -16,6 +16,7 @@ import { UpdateImeiModalComponent } from './modals/update-imei-modal/update-imei
 import { UpdateImeiModalService } from './services/update-imei-modal.service';
 import { DeleteImeiModalComponent } from './modals/delete-imei-modal/delete-imei-modal.component';
 import { LoginComponent } from './login/login.component';
+import { UsersCardsComponent } from './pages/users-cards/users-cards.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -36,6 +37,7 @@ const routes: Routes = [
     UpdateImeiModalComponent,
     DeleteImeiModalComponent,
     LoginComponent,
+    UsersCardsComponent,
   ],
   imports: [
     BrowserModule,
