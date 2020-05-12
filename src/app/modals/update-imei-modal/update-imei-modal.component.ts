@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UpdateImeiDTO } from './updateImeiDTO';
 import { UpdateImeiModalService } from '../../services/update-imei-modal.service';
 import { Router } from '@angular/router';
