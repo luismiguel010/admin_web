@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './services/users.service';
 import { InsertImeiModalService } from './services/insert-imei-modal.service';
 import { DeleteImeiModalService } from './services/delete-imei-modal.service';
+import { HttpModule } from '@angular/http';
+import {ReactiveFormsModule} from '@angular/forms'; 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +23,7 @@ import { UsersCardsComponent } from './pages/users-cards/users-cards.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'users', component: UsersComponent},
+  {path: 'users', component: UsersCardsComponent},
   {path: 'insert_imei_modal', component: InsertImeiModalComponent},
   {path: 'update_imei_modal', component: UpdateImeiModalComponent},
   {path: 'delete_imei_modal', component: DeleteImeiModalComponent},
@@ -43,7 +46,10 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes ),
-    FormsModule
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [
     UsersService,
