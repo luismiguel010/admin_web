@@ -22,7 +22,7 @@ export class HeaderComponent {
     let rank = this.authService.user.rank;
     let lastname = this.authService.user.lastname;
     this.authService.logout();
-    swal.fire('Logout', `Bye ${rank} ${lastname}`, 'success');
+    swal.fire('Logout', `Hasta luego ${rank} ${lastname}`, 'success');
     this.router.navigate(['/login']);
   }
 
