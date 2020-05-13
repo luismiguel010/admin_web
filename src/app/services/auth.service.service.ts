@@ -12,6 +12,8 @@ export class AuthService {
   public urlAuth: string;
   public url: string;
 
+  public isAdmin: boolean;
+
   private _user: User;
   private _token: string;
 
@@ -61,7 +63,7 @@ export class AuthService {
     this._user = new User();
     this._user.uuidUser = payload.uuid_user;
     this._user.imeiDevice = payload.imei_device;
-    this._user.username = payload.username;
+    this._user.username = payload.user_name;
     this._user.name = payload.name;
     this._user.lastname = payload.last_name;
     this._user.callSing = payload.call_sing;
@@ -87,7 +89,7 @@ export class AuthService {
 
   isAuthenticated(): boolean{
     let payload = this.getDataToken(this.token);
-    if(payload != null && payload.username && payload.username.length > 0){
+    if(payload != null && payload.user_name && payload.user_name.length > 0 && payload.authorities.includes("ADMIN_USER")){
       return true;
     }
     return false;
