@@ -11,6 +11,7 @@ export class AuthService {
 
   public urlAuth: string;
   public url: string;
+  public urlGetToken: string;
 
   public isAdmin: boolean;
 
@@ -19,6 +20,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { 
     this.urlAuth = GLOBAL_IPS.urlAuth;
+    this.urlGetToken = GLOBAL_IPS.url_get_toke;
   }
 
   public get user(): User{
@@ -42,7 +44,7 @@ export class AuthService {
   }
 
   login(user:User):Observable<any>{
-    const urlEndpoint = 'http://192.168.9.56:8084/oauth/token';
+    const urlEndpoint = this.urlGetToken;
 
     const credentials = btoa('testjwtclientid'+':'+'XY7kmzoNzl100');
 
