@@ -1,8 +1,4 @@
 export var GLOBAL_IPS = {
-<<<<<<< HEAD
-    url_get_toke: 'http://181.129.28.178:8086/quemes/msadmin/oauth/token',
-=======
->>>>>>> loginWithMsAuth
     url_audit: 'http://181.129.28.178:8086/quemes/msaudit/audit/',
     urlAuth: 'http://181.129.28.178:8086/quemes/msauth/',
     urlProfile: 'http://181.129.28.178:8086/quemes/msaudit/audit/getImageProfile/'
