@@ -1,7 +1,7 @@
 export var GLOBAL_IPS = {
-    url_audit: 'http://192.168.9.56:8084/audit/',
-    urlAuth: 'http://192.168.9.51:8080/',
-    urlProfile: 'http://192.168.9.56:8084/audit/getImageProfile/'
+    url_audit: 'http://181.129.28.178:8086/quemes/msaudit/audit/',
+    urlAuth: 'http://181.129.28.178:8086/quemes/msauth/',
+    urlProfile: 'http://181.129.28.178:8086/quemes/msaudit/audit/getImageProfile/'
 }
 
 /*Develop public*/
