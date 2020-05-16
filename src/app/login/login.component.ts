@@ -3,6 +3,8 @@ import { User } from '../users/user';
 import swal from 'sweetalert2';
 import { AuthService } from '../services/auth.service.service';
 import { Router } from '@angular/router';
+import { LoginUserWebDTO } from '../login/loginUserWeb'
+import { sha256, sha224 } from 'js-sha256';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +15,11 @@ export class LoginComponent implements OnInit {
 
   title:string = 'Sign in, please'
   user: User;
+  loginUserWebDTO: LoginUserWebDTO;
 
   constructor(private authService: AuthService, private router: Router) {
     this.user=new User();
+    this.loginUserWebDTO = new LoginUserWebDTO();
    }
 
   ngOnInit() {
@@ -27,15 +31,12 @@ export class LoginComponent implements OnInit {
   }
 
   login():void{
-    console.log(this.user);
-    if(this.user.username == null || this.user.password == null){
+    if(this.loginUserWebDTO.username == null || this.loginUserWebDTO.password == null){
       swal.fire('Error login', 'Username or password empty', 'error')
       return;
     }
-    this.authService.login(this.user).subscribe(response => {
-      console.log(response);
-
-      this.authService.saveUser(response.access_token);
+      this.authService.login(this.loginUserWebDTO).subscribe(response => {
+      this.authService.saveUser(response.access_token, response.uuidUser, response.name, response.lastname, response.rank);
       this.authService.saveToken(response.access_token);
       let user = this.authService.user;
       this.router.navigate([('/users')]);
