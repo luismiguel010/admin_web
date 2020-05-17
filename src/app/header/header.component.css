@@ -18,3 +18,9 @@
 .dropdown-item{
     color: #005E62
 }
+
+.img-fluid{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
