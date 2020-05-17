@@ -2,3 +2,25 @@
     border-color: #005E62;
     color: #005E62;
 }
+
+.btn-outline-primary{
+    border-color: white;
+    color: #005E62;
+    background-color: white;
+}
+
+.btn-outline-primary:focus{
+    background-color:#005E62;
+    border-color: #005E62;
+    border: #005E62;  
+}
+
+.dropdown-item{
+    color: #005E62
+}
+
+.img-fluid{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}

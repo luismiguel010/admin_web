@@ -10,21 +10,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item routerLinkActive=" active>
-        <a class="nav-link text-white" routerLink="/users">Users Quemes</a>
+        <a class="nav-link text-white" routerLink="/users">Usuarios Quemes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/insert_imei_modal" data-toggle="modal"
-          data-target="#insertImeiModal">Insert imei</a>
+          data-target="#insertImeiModal">Insertar imei</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/update_imei_modal" data-toggle="modal"
-          data-target="#updateImeiModal">Update imei</a>
+          data-target="#updateImeiModal">Actualizar imei</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/delete_imei_modal" data-toggle="modal"
-          data-target="#deleteImeiModal">Delete imei</a>
+          data-target="#deleteImeiModal">Eliminar imei</a>
       </li>
-      <li class="nav-item dropdown">
+      <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Update
@@ -37,12 +37,22 @@
           <a class="dropdown-item" href="#">Type device</a>
           <a class="dropdown-item" href="#">Job</a>
         </div>
+      </li>-->
+    </ul>
+    <a class="navbar-brand" href="#">
+     <img class="img-fluid" src="{{urlProfile + authService.user.uuidUser}}" alt="card image">
+    </a>
+    <ul class="navbar-nav  navbar-right">
+      <li class="dropdown">
+        <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{authService.user.rank}} {{authService.user.lastname}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <button (click)="logout()" class="dropdown-item" type="submit">Cerrar sesión</button>
+        </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-dark" type="button">Search</button>
-    </form>
   </div>
 </nav>
 

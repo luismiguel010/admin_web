@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './services/users.service';
 import { InsertImeiModalService } from './services/insert-imei-modal.service';
 import { DeleteImeiModalService } from './services/delete-imei-modal.service';
+import { HttpModule } from '@angular/http';
+import {ReactiveFormsModule} from '@angular/forms'; 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -15,13 +18,16 @@ import { InsertImeiModalComponent } from './modals/insert-imei-modal/insert-imei
 import { UpdateImeiModalComponent } from './modals/update-imei-modal/update-imei-modal.component';
 import { UpdateImeiModalService } from './services/update-imei-modal.service';
 import { DeleteImeiModalComponent } from './modals/delete-imei-modal/delete-imei-modal.component';
+import { LoginComponent } from './login/login.component';
+import { UsersCardsComponent } from './pages/users-cards/users-cards.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/users', pathMatch: 'full'},
-  {path: 'users', component: UsersComponent},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'users', component: UsersCardsComponent},
   {path: 'insert_imei_modal', component: InsertImeiModalComponent},
   {path: 'update_imei_modal', component: UpdateImeiModalComponent},
-  {path: 'delete_imei_modal', component: DeleteImeiModalComponent}
+  {path: 'delete_imei_modal', component: DeleteImeiModalComponent},
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
@@ -33,12 +39,17 @@ const routes: Routes = [
     InsertImeiModalComponent,
     UpdateImeiModalComponent,
     DeleteImeiModalComponent,
+    LoginComponent,
+    UsersCardsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes ),
-    FormsModule
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [
     UsersService,
