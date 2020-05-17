@@ -14,12 +14,16 @@ import { AuthService } from '../services/auth.service.service'
 })
 export class DeleteImeiModalService {
 
-  private urlEndPoint: string = '/admin/deleteImei';
+  private url_admin: string;
+
+  private urlEndPoint: string = 'deleteImei';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http: HttpClient, private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService) { 
+      this.url_admin = GLOBAL_IPS.url_admin;
+    }
 
     private addAuthorizationHeader(){
       let token = this.authService.token;
@@ -38,7 +42,7 @@ export class DeleteImeiModalService {
     } 
 
   deleteImei(imei: Imei) : Observable<any>{
-    return this.http.put(this.urlEndPoint, imei, {headers: this.addAuthorizationHeader()}).pipe(
+    return this.http.put(this.url_admin + this.urlEndPoint, imei, {headers: this.addAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNotAuthorized(e);
         return throwError(e);
