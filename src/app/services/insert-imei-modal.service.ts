@@ -14,12 +14,14 @@ import { AuthService } from '../services/auth.service.service'
 })
 export class InsertImeiModalService {
 
-  private urlEndPoint: string = '/admin/insertImei';
+  private url_admin: string;
+
+  private urlEndPoint: string = 'insertImei';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http: HttpClient, private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService) { this.url_admin = GLOBAL_IPS.url_admin;}
 
     private addAuthorizationHeader(){
       let token = this.authService.token;
@@ -38,7 +40,7 @@ export class InsertImeiModalService {
     } 
 
   insertImei(imei: Imei) : Observable<any> {
-    return this.http.post(this.urlEndPoint, imei, {headers: this.addAuthorizationHeader()}).pipe(
+    return this.http.post(this.url_admin + this.urlEndPoint, imei, {headers: this.addAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNotAuthorized(e);
         return throwError(e);

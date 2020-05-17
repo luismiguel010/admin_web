@@ -1,4 +1,5 @@
 export var GLOBAL_IPS = {
+    url_admin: 'http://181.129.28.178:8086/quemes/msadmin/admin/',
     url_audit: 'http://181.129.28.178:8086/quemes/msaudit/audit/',
     urlAuth: 'http://181.129.28.178:8086/quemes/msauth/',
     urlProfile: 'http://181.129.28.178:8086/quemes/msaudit/audit/getImageProfile/'

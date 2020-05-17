@@ -13,12 +13,14 @@ import { AuthService } from '../services/auth.service.service'
 })
 export class UpdateImeiModalService {
 
-  private urlEndPoint: string = '/admin/updateImei';
+  private url_admin: string;
+
+  private urlEndPoint: string = 'updateImei';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http: HttpClient, private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService) { this.url_admin = GLOBAL_IPS.url_admin;}
 
     private addAuthorizationHeader(){
       let token = this.authService.token;
@@ -37,7 +39,7 @@ export class UpdateImeiModalService {
     }
 
   updateImei(updateImeiDTO: UpdateImeiDTO) : Observable<any> {
-    return this.http.put(this.urlEndPoint, updateImeiDTO, {headers: this.addAuthorizationHeader()}).pipe(
+    return this.http.put(this.url_admin + this.urlEndPoint, updateImeiDTO, {headers: this.addAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNotAuthorized(e);
         return throwError(e);
