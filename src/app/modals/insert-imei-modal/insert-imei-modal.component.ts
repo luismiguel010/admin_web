@@ -20,7 +20,6 @@ export class InsertImeiModalComponent implements OnInit {
   }
 
   public insertImei(): void{
-    console.log(this.imei);
     if(this.imei.imeiDevice == null){
       swal.fire('Error insert', 'Campo de imei vacío', 'error')
       return;

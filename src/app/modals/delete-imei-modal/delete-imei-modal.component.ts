@@ -20,10 +20,19 @@ export class DeleteImeiModalComponent implements OnInit {
   }
 
   public deleteImei(): void{
-    this.imeiService.deleteImei(this.imei).subscribe(
-      response => {
+    if(this.imei.imeiDevice == null || this.imei.imeiDevice.length == 0){
+      swal.fire('Error insert', 'Campo de imei vacío', 'error')
+      return;
+    }
+
+    this.imeiService.deleteImei(this.imei)
+    .subscribe(response => {
         this.router.navigate(['/users'])
         swal.fire('Imei deleted', 'Imei deleted with success','success')
+      }, err => {
+        if(err.status == 500){
+          swal.fire('Error al eliminar imei', 'Es posible que el imei no exista', 'error')
+        }
       }
     )
   }
