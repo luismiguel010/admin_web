@@ -42,7 +42,8 @@ export class DeleteImeiModalService {
     } 
 
   deleteImei(imei: Imei) : Observable<any>{
-    return this.http.put(this.url_admin + this.urlEndPoint, imei, {headers: this.addAuthorizationHeader()}).pipe(
+    const url = this.url_admin + this.urlEndPoint + "?" + "imeiDevice="+imei.imeiDevice; 
+    return this.http.delete(url, {headers: this.addAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNotAuthorized(e);
         return throwError(e);
