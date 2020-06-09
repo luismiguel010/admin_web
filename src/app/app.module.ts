@@ -20,6 +20,8 @@ import { UpdateImeiModalService } from './services/update-imei-modal.service';
 import { DeleteImeiModalComponent } from './modals/delete-imei-modal/delete-imei-modal.component';
 import { LoginComponent } from './login/login.component';
 import { UsersCardsComponent } from './pages/users-cards/users-cards.component';
+import { ImeisListModalComponent } from './modals/imeis-list-modal/imeis-list-modal.component';
+import { ImeisListService } from './services/imeis-list.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -27,6 +29,7 @@ const routes: Routes = [
   {path: 'insert_imei_modal', component: InsertImeiModalComponent},
   {path: 'update_imei_modal', component: UpdateImeiModalComponent},
   {path: 'delete_imei_modal', component: DeleteImeiModalComponent},
+  {path: 'imeis_list_modal', component:  ImeisListModalComponent},
   { path: 'login', component: LoginComponent},
 ];
 
@@ -41,6 +44,7 @@ const routes: Routes = [
     DeleteImeiModalComponent,
     LoginComponent,
     UsersCardsComponent,
+    ImeisListModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ const routes: Routes = [
     UsersService,
     InsertImeiModalService,
     UpdateImeiModalService,
-    DeleteImeiModalService
+    DeleteImeiModalService,
+    ImeisListService
   ],
   bootstrap: [AppComponent]
 })
