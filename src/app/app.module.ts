@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { UsersCardsComponent } from './pages/users-cards/users-cards.component';
 import { ImeisListModalComponent } from './modals/imeis-list-modal/imeis-list-modal.component';
 import { ImeisListService } from './services/imeis-list.service';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -45,6 +46,7 @@ const routes: Routes = [
     LoginComponent,
     UsersCardsComponent,
     ImeisListModalComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ const routes: Routes = [
     HttpModule,
     ReactiveFormsModule,
     NgbModule,
+    FormsModule
   ],
   providers: [
     UsersService,

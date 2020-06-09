@@ -19,6 +19,8 @@ export class ImeisListModalComponent implements OnInit {
   constructor(protected imeiListService: ImeisListService, 
     private imeiService: DeleteImeiModalService, private router: Router) { }
 
+    filterImei = '';
+
   ngOnInit() {
     this.imeiListService.getImeiList()
     .subscribe(
