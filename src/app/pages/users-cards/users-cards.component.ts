@@ -29,6 +29,8 @@ export class UsersCardsComponent implements OnInit {
     this.urlProfile = GLOBAL_IPS.urlProfile;
   }
 
+  filterUser = '';
+
   ngOnInit() {
     this.usersService.getUsersQuemes()
     .subscribe(

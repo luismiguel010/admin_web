@@ -9,24 +9,23 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <input type="text" class="form-group" name="filterImei" placeholder="Buscar..." [(ngModel)]="filterImei">
-            </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Buscar Imei</span>
           </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+          name="filterImei" [(ngModel)]="filterImei">
         </div>
+
         <table class="table table-borderless">
           <tbody>
-            <tr *ngFor="let imei of imeis | filter:filterImei">
+            <tr *ngFor="let imei of imeis | filterImeis:filterImei">
               <td>{{imei.imeiDevice}}</td>
               <td><button role="button" (click)="deleteImei(imei)" class="btn btn-primary">Eliminar</button></td>
             </tr>
           </tbody>
         </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

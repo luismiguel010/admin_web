@@ -23,6 +23,8 @@ import { UsersCardsComponent } from './pages/users-cards/users-cards.component';
 import { ImeisListModalComponent } from './modals/imeis-list-modal/imeis-list-modal.component';
 import { ImeisListService } from './services/imeis-list.service';
 import { FilterPipe } from './pipes/filter.pipe';
+import { FilterUsersPipe } from './pages/users-cards/filter-users.pipe';
+import { FilterImeisPipe } from './modals/imeis-list-modal/filter-imeis.pipe';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -47,6 +49,8 @@ const routes: Routes = [
     UsersCardsComponent,
     ImeisListModalComponent,
     FilterPipe,
+    FilterUsersPipe,
+    FilterImeisPipe,
   ],
   imports: [
     BrowserModule,
