@@ -31,20 +31,20 @@
         <a class="nav-link text-white" routerLink="/delete_imei_modal" data-toggle="modal"
           data-target="#deleteImeiModal">Eliminar imei</a>
       </li>
-      <!--<li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Update
+          Actualizar
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Imei</a>
-          <a class="dropdown-item" href="#">Password</a>
-          <a class="dropdown-item" href="#">Rank</a>
+          <a class="dropdown-item" href="#" routerLink="/update_imei_modal" data-toggle="modal" data-target="#updateImeiModal">Imei</a>
+          <a class="dropdown-item" href="#" routerLink="/update_password_modal" data-toggle="modal" data-target="#updatePasswordModal">Contraseña</a>
+          <!--<a class="dropdown-item" href="#">Rank</a>
           <a class="dropdown-item" href="#">Dependency</a>
           <a class="dropdown-item" href="#">Type device</a>
-          <a class="dropdown-item" href="#">Job</a>
+          <a class="dropdown-item" href="#">Job</a>-->
         </div>
-      </li>-->
+      </li>
     </ul>
     <a class="navbar-brand" href="#">
      <img class="img-fluid" src="{{urlProfile + authService.user.uuidUser}}" alt="card image">
@@ -67,3 +67,4 @@
 <app-update-imei-modal></app-update-imei-modal>
 <app-delete-imei-modal></app-delete-imei-modal>
 <app-imeis-list-modal></app-imeis-list-modal>
+<app-update-password-modal></app-update-password-modal>
