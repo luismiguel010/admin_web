@@ -25,6 +25,8 @@ import { ImeisListService } from './services/imeis-list.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterUsersPipe } from './pages/users-cards/filter-users.pipe';
 import { FilterImeisPipe } from './modals/imeis-list-modal/filter-imeis.pipe';
+import { UpdatePasswordModalComponent } from './modals/update-password-modal/update-password-modal.component';
+import { UpdatePasswordModalService } from './services/update-password-modal.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -33,7 +35,8 @@ const routes: Routes = [
   {path: 'update_imei_modal', component: UpdateImeiModalComponent},
   {path: 'delete_imei_modal', component: DeleteImeiModalComponent},
   {path: 'imeis_list_modal', component:  ImeisListModalComponent},
-  { path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'update_password_modal', component: UpdatePasswordModalComponent},
 ];
 
 @NgModule({
@@ -51,6 +54,7 @@ const routes: Routes = [
     FilterPipe,
     FilterUsersPipe,
     FilterImeisPipe,
+    UpdatePasswordModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,8 @@ const routes: Routes = [
     InsertImeiModalService,
     UpdateImeiModalService,
     DeleteImeiModalService,
-    ImeisListService
+    ImeisListService,
+    UpdatePasswordModalService
   ],
   bootstrap: [AppComponent]
 })
