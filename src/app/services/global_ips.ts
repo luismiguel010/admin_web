@@ -1,8 +1,8 @@
 export var GLOBAL_IPS = {
-    url_admin: 'http://181.129.28.178:30001/appis/msadmin/admin/',
-    url_audit: 'http://181.129.28.178:30001/appis/msaudit/audit/',
-    urlAuth: 'http://181.129.28.178:30001/appis/msauth/',
-    urlProfile: 'http://181.129.28.178:30001/appis/msaudit/audit/getImageProfile/'
+    url_admin: 'http://181.129.28.178:30002/appis/msadmin/admin/',
+    url_audit: 'http://181.129.28.178:30002/appis/msaudit/audit/',
+    urlAuth: 'http://181.129.28.178:30002/appis/msauth/',
+    urlProfile: 'http://181.129.28.178:30002/appis/msaudit/audit/getImageProfile/'
 }
 
 /*Develop public*/

@@ -1,6 +1,6 @@
 {
     "/admin/*": {
-        "target": "http://181.129.28.178:30001/appis/msadmin",
+        "target": "http://181.129.28.178:30002/appis/msadmin",
         "secure": false,
         "logLevel": "debug"
     }
