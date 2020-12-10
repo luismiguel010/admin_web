@@ -19,7 +19,8 @@ export class DeleteImeiModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  public deleteImei(): void{
+  public deleteImei(imei: Imei): void{
+    this.imei = imei;
     if(this.imei.imeiDevice == null || this.imei.imeiDevice.length == 0){
       swal.fire('Error insert', 'Campo de imei vacío', 'error')
       return;
@@ -29,6 +30,7 @@ export class DeleteImeiModalComponent implements OnInit {
     .subscribe(response => {
         this.router.navigate(['/users'])
         swal.fire('Imei deleted', 'Imei deleted with success','success')
+        this.ngOnInit();
       }, err => {
         if(err.status == 500){
           swal.fire('Error al eliminar imei', 'Es posible que el imei no exista', 'error')
