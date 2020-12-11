@@ -12,11 +12,10 @@
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Usuarios Quemes
+          Tablas bases de datos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#" routerLink="/imeis_list_modal" data-toggle="modal"
-          data-target="#imeisList">Imeis Registrados</a>
+          <a class="dropdown-item" [routerLink]="['/imeis_list_modal']">Imeis Registrados</a>
         </div>
       </li>
       <li class="nav-item">
@@ -66,5 +65,4 @@
 <app-insert-imei-modal></app-insert-imei-modal>
 <app-update-imei-modal></app-update-imei-modal>
 <app-delete-imei-modal></app-delete-imei-modal>
-<app-imeis-list-modal></app-imeis-list-modal>
 <app-update-password-modal></app-update-password-modal>

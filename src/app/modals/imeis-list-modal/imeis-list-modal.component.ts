@@ -10,7 +10,7 @@ import swal from 'sweetalert2';
   templateUrl: './imeis-list-modal.component.html',
   styleUrls: ['./imeis-list-modal.component.css']
 })
-export class ImeisListModalComponent implements OnInit {
+export class ImeisListModalComponent implements OnInit{
 
   imeis: any[] = [];
 
@@ -19,9 +19,10 @@ export class ImeisListModalComponent implements OnInit {
   constructor(protected imeiListService: ImeisListService, 
     private imeiService: DeleteImeiModalService, private router: Router) { }
 
-    filterImei = '';
+  filterImei = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
+    console.log("onInit");
     this.imeiListService.getImeiList()
     .subscribe(
     (imeis) => {
