@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-imeis-list-modal',
-  templateUrl: './imeis-list-modal.component.html',
-  styleUrls: ['./imeis-list-modal.component.css']
+  selector: 'app-imeis-list',
+  templateUrl: './imeis-list.component.html',
+  styleUrls: ['./imeis-list.component.css']
 })
-export class ImeisListModalComponent implements OnInit{
+export class ImeisListComponent implements OnInit{
 
   imeis: any[] = [];
 

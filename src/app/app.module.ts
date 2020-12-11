@@ -20,11 +20,11 @@ import { UpdateImeiModalService } from './services/update-imei-modal.service';
 import { DeleteImeiModalComponent } from './modals/delete-imei-modal/delete-imei-modal.component';
 import { LoginComponent } from './login/login.component';
 import { UsersCardsComponent } from './pages/users-cards/users-cards.component';
-import { ImeisListModalComponent } from './modals/imeis-list-modal/imeis-list-modal.component';
+import { ImeisListComponent } from './modals/imeis-list/imeis-list.component';
 import { ImeisListService } from './services/imeis-list.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterUsersPipe } from './pages/users-cards/filter-users.pipe';
-import { FilterImeisPipe } from './modals/imeis-list-modal/filter-imeis.pipe';
+import { FilterImeisPipe } from './modals/imeis-list/filter-imeis.pipe';
 import { UpdatePasswordModalComponent } from './modals/update-password-modal/update-password-modal.component';
 import { UpdatePasswordModalService } from './services/update-password-modal.service';
 
@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'insert_imei_modal', component: InsertImeiModalComponent},
   {path: 'update_imei_modal', component: UpdateImeiModalComponent},
   {path: 'delete_imei_modal', component: DeleteImeiModalComponent},
-  {path: 'imeis_list_modal', component:  ImeisListModalComponent},
+  {path: 'imeis_list', component:  ImeisListComponent},
   {path: 'login', component: LoginComponent},
   {path: 'update_password_modal', component: UpdatePasswordModalComponent},
 ];
@@ -50,7 +50,7 @@ const routes: Routes = [
     DeleteImeiModalComponent,
     LoginComponent,
     UsersCardsComponent,
-    ImeisListModalComponent,
+    ImeisListComponent,
     FilterPipe,
     FilterUsersPipe,
     FilterImeisPipe,
