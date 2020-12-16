@@ -9,17 +9,18 @@ import { AuthService } from '../services/auth.service.service'
 @Injectable({
   providedIn: 'root'
 })
-export class ImeisListService {
+export class UserRolesService {
 
   public url_admin: string;
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(protected http: HttpClient, private router: Router,
-    private authService: AuthService) { 
+    private authService: AuthService) {
       this.url_admin = GLOBAL_IPS.url_admin;
     }
 
+  
     private addAuthorizationHeader(){
       let token = this.authService.token;
       if(token != null){
@@ -27,7 +28,7 @@ export class ImeisListService {
       }
       return this.httpHeaders;
     }
-  
+
     private isNotAuthorized(e): boolean{
       if(e.status==401 || e.status==403){
         this.router.navigate(['/login'])
@@ -36,8 +37,8 @@ export class ImeisListService {
       return false;
     } 
 
-    getImeiList(): Observable<any>{
-      return this.http.get(this.url_admin + 'getAllImeis', {headers: this.addAuthorizationHeader()}).pipe(
+    getUserRoleList(): Observable<any>{
+      return this.http.get(this.url_admin + 'getAllUserRoles', {headers: this.addAuthorizationHeader()}).pipe(
         catchError(e => {
           this.isNotAuthorized(e);
           return throwError(e);
