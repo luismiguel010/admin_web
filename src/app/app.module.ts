@@ -20,11 +20,11 @@ import { UpdateImeiModalService } from './services/update-imei-modal.service';
 import { DeleteImeiModalComponent } from './modals/delete-imei-modal/delete-imei-modal.component';
 import { LoginComponent } from './login/login.component';
 import { UsersCardsComponent } from './pages/users-cards/users-cards.component';
-import { ImeisListComponent } from './modals/imeis-list/imeis-list.component';
+import { ImeisListComponent } from './pages/databases-tables/imeis-list/imeis-list.component';
 import { ImeisListService } from './services/imeis-list.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterUsersPipe } from './pages/users-cards/filter-users.pipe';
-import { FilterImeisPipe } from './modals/imeis-list/filter-imeis.pipe';
+import { FilterImeisPipe } from './pages/databases-tables/imeis-list/filter-imeis.pipe';
 import { UpdatePasswordModalComponent } from './modals/update-password-modal/update-password-modal.component';
 import { UpdatePasswordModalService } from './services/update-password-modal.service';
 
