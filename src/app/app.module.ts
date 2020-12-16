@@ -27,6 +27,8 @@ import { FilterUsersPipe } from './pages/users-cards/filter-users.pipe';
 import { FilterImeisPipe } from './pages/databases-tables/imeis-list/filter-imeis.pipe';
 import { UpdatePasswordModalComponent } from './modals/update-password-modal/update-password-modal.component';
 import { UpdatePasswordModalService } from './services/update-password-modal.service';
+import { UsersRoleComponent } from './pages/databases-tables/users-role/users-role/users-role.component';
+import { UserRolesService } from './services/user-roles.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -37,6 +39,7 @@ const routes: Routes = [
   {path: 'imeis_list', component:  ImeisListComponent},
   {path: 'login', component: LoginComponent},
   {path: 'update_password_modal', component: UpdatePasswordModalComponent},
+  {path: 'users_role', component: UsersRoleComponent},
 ];
 
 @NgModule({
@@ -55,6 +58,7 @@ const routes: Routes = [
     FilterUsersPipe,
     FilterImeisPipe,
     UpdatePasswordModalComponent,
+    UsersRoleComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,8 @@ const routes: Routes = [
     UpdateImeiModalService,
     DeleteImeiModalService,
     ImeisListService,
-    UpdatePasswordModalService
+    UpdatePasswordModalService,
+    UserRolesService
   ],
   bootstrap: [AppComponent]
 })
