@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GLOBAL_IPS } from './global_ips';
-import { User } from '../users/user';
+import { User } from '../models/user';
 import { LoginUserWebDTO } from '../login/loginUserWeb';
 import { LoginUserWebServer } from '../login/loginUserWebServer'
 import { sha256, sha224 } from 'js-sha256';

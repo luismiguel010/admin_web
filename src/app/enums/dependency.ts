@@ -1,0 +1,4 @@
+export enum Dependency {
+    Selection, COFAC, CACOM1, CACOM2, CACOM3, CACOM4, CACOM5, CACOM6, CACOM7, CAMAN, CATAM, EMAVI, ESUFA, GACAR,
+    GACAS, GAORI, GAAMA
+  }

@@ -46,4 +46,22 @@ export class UserRolesService {
       )
     }
 
+    getUserRoleListByUuid(uuid: string): Observable<any>{
+      return this.http.get(this.url_admin + 'getUserRoleById' + `/${uuid}`, {headers: this.addAuthorizationHeader(), responseType: 'text'}).pipe(
+        catchError(e => {
+          this.isNotAuthorized(e);
+          return throwError(e);
+        })
+      ) 
+    }
+
+    getAllUsersWithRole(): Observable<any>{
+      return this.http.get(this.url_admin + 'getAllUsersWithRole', {headers: this.addAuthorizationHeader()}).pipe(
+        catchError(e =>{
+          this.isNotAuthorized(e);
+          return throwError(e);
+        })
+      )
+    }
+
 }

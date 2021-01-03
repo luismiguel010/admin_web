@@ -21,18 +21,7 @@ export class InsertImeiModalComponent implements OnInit{
     private imeiService: InsertImeiModalService,
     private router: Router) { }
 
-    ngOnInit(): void {
-      console.log("onInit");
-      this.imeiListService.getImeiList()
-      .subscribe(
-      (imeis) => {
-        this.imeis = imeis;
-      },
-      (error) => {
-        console.error(error);
-      }
-      );
-    }
+    ngOnInit(): void {}
 
   public insertImei(): void{
     if(this.imei.imeiDevice == null){
