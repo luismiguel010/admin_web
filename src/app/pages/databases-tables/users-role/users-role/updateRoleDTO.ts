@@ -1,3 +1,3 @@
 export class UpdateRoleDTO{
-    username: string;
+    uuidUser: string;
 }

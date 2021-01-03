@@ -25,7 +25,7 @@
                 <td>{{getRank(userRole.rank)}}</td>
                 <td>{{getDependency(userRole.dependency)}}</td>
                 <td>{{userRole.role}}</td>
-                <td><button type="button" class="btn btn-primary">Actualizar role</button></td>
+                <td><button type="button" (click)="updateRole(userRole.uuidUser)" class="btn btn-primary">Actualizar role</button></td>
               </tr>
             </tbody>
           </table>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UpdateRoleDTO } from '../modals/update-role-modal/updateRoleDTO';
+import { UpdateRoleDTO } from '../pages/databases-tables/users-role/users-role/updateRoleDTO';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpRequest, HttpEvent } from '@angular/common/http';
 import { map, catchError, tap  } from 'rxjs/operators';
@@ -39,7 +39,7 @@ export class UpdateRoleService {
     } 
 
     updateRole(updateRoleDTO: UpdateRoleDTO) : Observable<any>{
-      return this.http.put(this.url_admin + this.urlEndPoint, updateRoleDTO, {headers: this.addAuthorizationHeader()}).pipe(
+      return this.http.post(this.url_admin + this.urlEndPoint, updateRoleDTO, {headers: this.addAuthorizationHeader()}).pipe(
         catchError(e => {
           this.isNotAuthorized(e);
           return throwError(e);

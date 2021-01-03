@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UpdateRoleDTO } from './updateRoleDTO';
+import { UpdateRoleDTO } from '../../pages/databases-tables/users-role/users-role/updateRoleDTO';
 import { UpdateRoleService } from '../../services/update-role.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2'
@@ -22,7 +22,7 @@ export class UpdateRoleModalComponent implements OnInit {
   public updateRole(): void {
 
     console.log(this.updateRoleDTO);
-    if (this.updateRoleDTO.username == null) {
+    if (this.updateRoleDTO.uuidUser == null) {
       swal.fire('Error al actualizar role', 'Contacta al administrador', 'error')
       return;
     }

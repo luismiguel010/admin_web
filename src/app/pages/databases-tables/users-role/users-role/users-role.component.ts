@@ -4,7 +4,7 @@ import { GLOBAL_IPS } from '../../../../services/global_ips';
 import { UpdateRoleService } from '../../../../services/update-role.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { UpdateRoleDTO } from '../../../../modals/update-role-modal/updateRoleDTO'; 
+import { UpdateRoleDTO } from './updateRoleDTO'; 
 import { Router } from '@angular/router';
 import swal from 'sweetalert2'
 import { error } from 'protractor';
@@ -62,17 +62,17 @@ export class UsersRoleComponent implements OnInit {
     return Dependency[number];
   }
 
-  public updateRole(username: string): void {
-    this.updateRoleDTO.username = username;
+  public updateRole(uuidUser: string): void {
+    this.updateRoleDTO.uuidUser = uuidUser;
     console.log(this.updateRoleDTO);
-    if (this.updateRoleDTO.username == null) {
+    if (this.updateRoleDTO.uuidUser == null) {
       swal.fire('Error al actualizar role', 'Comuníquese con un administrador', 'error')
       return;
     }
 
     this.updateRoleService.updateRole(this.updateRoleDTO)
     .subscribe(response => {
-      this.router.navigate(['/users_role'])
+      this.router.navigate(['/users'])
       swal.fire('Role actualizado', 'Role actualizado con éxito', 'success')
     }, err => {
       if(err.status == 500){
