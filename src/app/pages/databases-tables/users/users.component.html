@@ -3,22 +3,20 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">Image profile</th>
                     <th scope="col">Id</th>
-                    <th scope="col">Cellphone number</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Lastname</th>
-                    <th scope="col">Callsing</th>
+                    <th scope="col">Número del celular</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Apodo</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Job</th>
-                    <th scope="col">Rank</th>
-                    <th scope="col">Dependency</th>
-                    <th scope="col">Type device</th>
+                    <th scope="col">Trabajo</th>
+                    <th scope="col">Rango</th>
+                    <th scope="col">Dependencia</th>
+                    <th scope="col">Tipo de dispositivo</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let user of users">
-                    <td><img src="assets/DefaultProfile2.png" class="img-profile"></td>
                     <td>{{user.uuidUser}} </td>
                     <td>{{user.username}}</td>
                     <td>{{user.name}} </td>

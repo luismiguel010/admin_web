@@ -11,7 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { UsersComponent } from './pages/users/users.component';
+import { UsersComponent } from './pages/databases-tables/users/users.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InsertImeiModalComponent } from './modals/insert-imei-modal/insert-imei-modal.component';
@@ -44,6 +44,7 @@ const routes: Routes = [
   {path: 'update_password_modal', component: UpdatePasswordModalComponent},
   {path: 'users_role', component: UsersRoleComponent},
   {path: 'update_role_modal', component: UpdateRoleModalComponent},
+  {path: 'users_table', component: UsersComponent}
 ];
 
 @NgModule({

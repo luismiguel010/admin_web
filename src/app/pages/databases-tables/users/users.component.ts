@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../../../services/users.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2'
 
