@@ -72,14 +72,19 @@ export class UsersRoleComponent implements OnInit {
 
     this.updateRoleService.updateRole(this.updateRoleDTO)
     .subscribe(response => {
-      this.router.navigate(['/users'])
-      swal.fire('Role actualizado', 'Role actualizado con éxito', 'success')
+      //this.router.navigate(['/users_role'])
+      this.refresh();
+      swal.fire('Role actualizado', 'Role actualizado con éxito', 'success');
     }, err => {
       if(err.status == 500){
         swal.fire('Error al actualizar role', 'Comuníquese con un administrador', 'error')
       }
     })
 
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 }

@@ -43,7 +43,8 @@ export class ImeisListComponent implements OnInit{
 
     this.imeiService.deleteImei(this.imei)
     .subscribe(response => {
-        this.router.navigate(['/users'])
+        //this.router.navigate(['/users'])
+        this.refresh();
         swal.fire('Imei deleted', 'Imei deleted with success','success')
         this.ngOnInit();
       }, err => {
@@ -52,6 +53,10 @@ export class ImeisListComponent implements OnInit{
         }
       }
     )
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 }

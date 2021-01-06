@@ -30,7 +30,8 @@ export class DeleteImeiModalComponent implements OnInit {
 
     this.imeiService.deleteImei(this.imei)
     .subscribe(response => {
-        this.router.navigate(['/users'])
+        //this.router.navigate(['/users'])
+        window.location.reload();
         swal.fire('Imei eliminado', 'Imei eliminado con éxito','success')
       }, err => {
         if(err.status == 500){

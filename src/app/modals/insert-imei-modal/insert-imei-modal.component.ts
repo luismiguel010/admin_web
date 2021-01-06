@@ -30,7 +30,8 @@ export class InsertImeiModalComponent implements OnInit{
     }
     this.imeiService.insertImei(this.imei)
     .subscribe(responde => {
-      this.router.navigate(['/users'])
+      //this.router.navigate(['/users'])
+      window.location.reload();
       swal.fire('Imei registrado', 'Imei registrado con éxito', 'success')
       this.ngOnInit();
       },err => {

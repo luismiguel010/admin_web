@@ -29,7 +29,8 @@ export class UpdateImeiModalComponent implements OnInit {
 
     this.updateImeiService.updateImei(this.updateImeiDTO)
       .subscribe(response => {
-        this.router.navigate(['/users'])
+        //this.router.navigate(['/users'])
+        window.location.reload();
         swal.fire('Imei actualizado', 'Imei actualizado con éxito', 'success')
       },err => {
         if(err.status == 500){
