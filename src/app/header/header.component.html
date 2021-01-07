@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand" href="/users">
+  <a class="navbar-brand">
     <img src="assets/Logo.png" width="60" height="60" alt="">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -12,37 +12,33 @@
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/users">Inicio</a>
       </li>
-        <li class="nav-item dropdown">
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/insert_imei_modal" data-toggle="modal"
+          data-target="#insertImeiModal">Registrar IMEI</a>
+      </li>
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Tablas bases de datos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/users_table']">Usuarios Registrados</a>
-          <a class="dropdown-item" [routerLink]="['/imeis_list']">Imeis Registrados</a>
+          <a class="dropdown-item" [routerLink]="['/imeis_list']">IMEIs Registrados</a>
           <a class="dropdown-item" [routerLink]="['/users_role']">Roles de los usuarios</a>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/insert_imei_modal" data-toggle="modal"
-          data-target="#insertImeiModal">Insertar imei</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/update_imei_modal" data-toggle="modal"
-          data-target="#updateImeiModal">Actualizar imei</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/delete_imei_modal" data-toggle="modal"
-          data-target="#deleteImeiModal">Eliminar imei</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Actualizar
+          Herramientas
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#" routerLink="/update_imei_modal" data-toggle="modal" data-target="#updateImeiModal">Imei</a>
-          <a class="dropdown-item" href="#" routerLink="/update_password_modal" data-toggle="modal" data-target="#updatePasswordModal">Contraseña</a>
+          <a class="dropdown-item" href="#" routerLink="/update_imei_modal" data-toggle="modal"
+            data-target="#updateImeiModal">Actualizar IMEI</a>
+          <a class="dropdown-item" href="#" routerLink="/update_password_modal" data-toggle="modal"
+            data-target="#updatePasswordModal">Actualizar Contraseña</a>
+          <a class="dropdown-item" href="#" routerLink="/delete_imei_modal" data-toggle="modal"
+            data-target="#deleteImeiModal">Eliminar IMEI</a>
           <!--<a class="dropdown-item" href="#">Rank</a>
           <a class="dropdown-item" href="#">Dependency</a>
           <a class="dropdown-item" href="#">Type device</a>
@@ -51,7 +47,7 @@
       </li>
     </ul>
     <a class="navbar-brand" href="#">
-     <img class="img-fluid" src="{{urlProfile + authService.user.uuidUser}}" alt="card image">
+      <img class="img-fluid" src="{{urlProfile + authService.user.uuidUser}}" alt="card image">
     </a>
     <ul class="navbar-nav  navbar-right">
       <li class="dropdown">
