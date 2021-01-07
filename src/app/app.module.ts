@@ -26,6 +26,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FilterUsersPipe } from './pages/users-cards/filter-users.pipe';
 import { FilterImeisPipe } from './pages/databases-tables/imeis-list/filter-imeis.pipe';
 import { FilterUsersRolePipe } from './pages/databases-tables/users-role/users-role/filer-user-roles.pipe';
+import { FilterUsersDBRolePipe } from './pages/databases-tables/users/filter-users_db.pipe';
 import { UpdatePasswordModalComponent } from './modals/update-password-modal/update-password-modal.component';
 import { UpdatePasswordModalService } from './services/update-password-modal.service';
 import { UsersRoleComponent } from './pages/databases-tables/users-role/users-role/users-role.component';
@@ -63,6 +64,7 @@ const routes: Routes = [
     FilterUsersPipe,
     FilterImeisPipe,
     FilterUsersRolePipe,
+    FilterUsersDBRolePipe,
     UpdatePasswordModalComponent,
     UsersRoleComponent,
     UpdateRoleModalComponent,

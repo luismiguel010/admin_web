@@ -5,7 +5,7 @@
   <div class="search">
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Buscar Imei</span>
+      <span class="input-group-text" id="inputGroup-sizing-sm">Buscar IMEI</span>
     </div>
     <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
     name="filterImei" [(ngModel)]="filterImei">
@@ -16,8 +16,7 @@
     <div class="card" style="width: 69rem;">
       <div class="card-body">
         <h5 class="card-title">Imeis Registrados</h5>
-    
-        <table class="table table-borderless">
+        <table class="table">
           <tbody>
             <tr *ngFor="let imei of imeis | filterImeis:filterImei">
               <td>{{imei.imeiDevice}}</td>

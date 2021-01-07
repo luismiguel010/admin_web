@@ -17,7 +17,16 @@
         <div class="card-body">
           <h5 class="card-title">Roles de los usuarios</h5>
 
-          <table class="table table-borderless">
+          <table class="table">
+            <thead>
+              <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Rango</th>
+                  <th scope="col">Dependencia</th>
+                  <th scope="col">Rol</th>
+              </tr>
+          </thead>
             <tbody>
               <tr *ngFor="let userRole of usersRole | filterUsersRole:filterUserRole">
                 <td>{{userRole.name}}</td>

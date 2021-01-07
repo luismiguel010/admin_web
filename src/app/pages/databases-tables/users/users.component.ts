@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
-import { Router } from '@angular/router';
-import swal from 'sweetalert2'
+
 
 
 @Component({
@@ -16,6 +15,8 @@ export class UsersComponent implements OnInit {
   users: any[] = [];
 
   constructor(protected usersService: UsersService) { }
+
+  filterUser = '';
 
   ngOnInit() {
     this.usersService.getUsersQuemes()
