@@ -32,7 +32,7 @@
                   <p class="card-text">{{user.uuidJob}}</p>
                   <p class="card-text">{{user.dependency}}</p>
                   <div class="card-body text-center mt-4">
-                    <button type="button" (click)="openModal(editProfileModal, user)" class="btn btn-primary">Actualizar imei</button>
+                    <button type="button" (click)="openModal(editProfileModal, user)" class="btn btn-primary">Actualizar IMEI</button>
                   </div>
                 </div>
               </div>
@@ -46,7 +46,7 @@
 
 <ng-template #editProfileModal let-modal>
   <div class="modal-header">
-    <h5 class="modal-title" id="editProfileLabel">Actualizar imei</h5>
+    <h5 class="modal-title" id="editProfileLabel">Actualizar IMEI de {{rank + " " + lastname}}</h5>
     <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -55,14 +55,13 @@
   <div class="modal-body">
     <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
       <div class="form-group row">
-        <label for="firstname" class="col-sm-4 col-form-label">Nuevo imei</label>
+        <label for="firstname" class="col-sm-4 col-form-label">Nuevo IMEI</label>
         <div class="col-sm-8">
           <input type="text" class="form-control" placeholder="New imei" [(ngModel)]="updateImeiDTO.newImei"
             name="newImei" formControlName="username" id="username">
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button role="button" class="btn btn-primary">Actualizar</button>
       </div>
     </form>

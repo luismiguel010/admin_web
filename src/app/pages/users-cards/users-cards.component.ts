@@ -22,6 +22,8 @@ export class UsersCardsComponent implements OnInit {
   users: any[] = [];
   public urlProfile: string; 
   username: string;
+  lastname: string;
+  rank: string;
 
   constructor(protected usersService: UsersService, private updateImeiService: UpdateImeiModalService,
     private fb: FormBuilder, private modalService: NgbModal,
@@ -70,6 +72,8 @@ export class UsersCardsComponent implements OnInit {
   }
 
   openModal(targetModal, user) {
+    this.lastname = user.lastName;
+    this.rank = user.rank;
     this.username = user.username;
     this.modalService.open(targetModal, {
      centered: true,
