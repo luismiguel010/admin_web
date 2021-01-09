@@ -27,7 +27,8 @@ export class UsersCardsComponent implements OnInit {
   public urlProfile: string; 
   public rank: Rank;
   ranks: any[];
-  public dependencys: Dependency[];
+  public dependency: Dependency;
+  dependencies: any[];
 
   constructor(protected usersService: UsersService, private updateImeiService: UpdateImeiModalService,
     private fb: FormBuilder, private modalService: NgbModal,
@@ -101,7 +102,15 @@ export class UsersCardsComponent implements OnInit {
     this.ranks = Object.keys(Rank).filter((item) => {
       return isNaN(Number(item));
     });
-    console.log(this.ranks)
+    this.ranks = this.ranks.filter(function(selection){
+      return selection !== "Selection";
+    });
+    this.dependencies = Object.keys(Dependency).filter((item) => {
+      return isNaN(Number(item));
+    })
+    this.dependencies = this.dependencies.filter(function(selection){
+      return selection !== "Selection";
+    });
     this.user = user;
      this.modalService.open(targetModal, {
        centered: true,
