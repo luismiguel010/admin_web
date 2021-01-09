@@ -26,7 +26,7 @@ export class UsersCardsComponent implements OnInit {
   users: any[] = [];
   public urlProfile: string; 
   public rank: Rank;
-  ranks: string[];
+  ranks: any[];
   public dependencys: Dependency[];
 
   constructor(protected usersService: UsersService, private updateImeiService: UpdateImeiModalService,
@@ -98,7 +98,10 @@ export class UsersCardsComponent implements OnInit {
    }
 
    openModalProfile(targetModal, user){
-    this.ranks = Object.keys(Rank);
+    this.ranks = Object.keys(Rank).filter((item) => {
+      return isNaN(Number(item));
+    });
+    console.log(this.ranks)
     this.user = user;
      this.modalService.open(targetModal, {
        centered: true,
@@ -119,5 +122,7 @@ export class UsersCardsComponent implements OnInit {
      this.modalService.dismissAll();
      console.log("res:", this.editProfileForm.getRawValue());
    }
+
+
 
 }
