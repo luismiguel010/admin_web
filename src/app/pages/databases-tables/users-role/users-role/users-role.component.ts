@@ -2,18 +2,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersService } from '../../../../services/users.service';
 import { GLOBAL_IPS } from '../../../../services/global_ips';
 import { UpdateRoleService } from '../../../../services/update-role.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateRoleDTO } from './updateRoleDTO'; 
 import { Router } from '@angular/router';
 import swal from 'sweetalert2'
-import { error } from 'protractor';
 import { User } from '../../../../models/user';
 import { UserRole } from '../../../../models/user-role';
 import { UserRolesService } from '../../../../services/user-roles.service';
-import { Observable, Subject } from 'rxjs';
-import { stringify } from '@angular/compiler/src/util';
-import { flatMap } from 'rxjs/operators';
 import { Rank } from '../../../../enums/rank';
 import { Dependency } from '../../../../enums/dependency';
 

@@ -2,11 +2,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { GLOBAL_IPS } from '../../services/global_ips';
 import { UpdateImeiModalService } from '../../services/update-imei-modal.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormGroupName } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateImeiDTO } from '../../modals/update-imei-modal/updateImeiDTO';
 import { Router } from '@angular/router';
-import swal from 'sweetalert2'
+import swal from 'sweetalert2';
+import { User } from '../../models/user';
+import { Rank } from '../../enums/rank';
+import { Dependency } from '../../enums/dependency';
 
 @Component({
   selector: 'app-users-cards',
@@ -15,15 +18,16 @@ import swal from 'sweetalert2'
 })
 export class UsersCardsComponent implements OnInit {
   title = 'modal2';
+  editUpdateForm: FormGroup;
   editProfileForm: FormGroup;
   public updateImeiDTO: UpdateImeiDTO = new UpdateImeiDTO();
-  uuidUser = '';
+  public user: User = new User();
   @Output() buttonClicked = new EventEmitter();
   users: any[] = [];
   public urlProfile: string; 
-  username: string;
-  lastname: string;
-  rank: string;
+  public rank: Rank;
+  ranks: string[];
+  public dependencys: Dependency[];
 
   constructor(protected usersService: UsersService, private updateImeiService: UpdateImeiModalService,
     private fb: FormBuilder, private modalService: NgbModal,
@@ -44,9 +48,20 @@ export class UsersCardsComponent implements OnInit {
     }
     );
 
-    this.editProfileForm = this.fb.group({
+    this.editUpdateForm = this.fb.group({
       username: [''],
      });
+
+    this.editProfileForm = this.fb.group({
+      username: [''],
+      name: [''],
+      lastname: [''],
+      callSing: [''],
+      email: [''],
+      job: [''],
+      rank: [''],
+      dependency: [''],
+    });
   }
 
   public updateImei(username: string): void {
@@ -71,23 +86,38 @@ export class UsersCardsComponent implements OnInit {
       )
   }
 
-  openModal(targetModal, user) {
-    this.lastname = user.lastName;
-    this.rank = user.rank;
-    this.username = user.username;
+  openModalUpdate(targetModal, user) {
+    this.user = user;
     this.modalService.open(targetModal, {
      centered: true,
      backdrop: 'static'
     });
-   
-    this.editProfileForm.patchValue({
+    this.editUpdateForm.patchValue({
      username: user.username,
     });
    }
-   onSubmit() {
-    this.updateImei(this.username);
+
+   openModalProfile(targetModal, user){
+    this.ranks = Object.keys(Rank);
+    this.user = user;
+     this.modalService.open(targetModal, {
+       centered: true,
+       backdrop: 'static'
+     });
+     this.editProfileForm.patchValue({
+       username: user.username,
+     });
+   }
+
+   onSubmitUpdate() {
+    this.updateImei(this.user.username);
     this.modalService.dismissAll();
-    console.log("res:", this.editProfileForm.getRawValue());
+    console.log("res:", this.editUpdateForm.getRawValue());
+   }
+
+   onSubmitProfile(){
+     this.modalService.dismissAll();
+     console.log("res:", this.editProfileForm.getRawValue());
    }
 
 }
