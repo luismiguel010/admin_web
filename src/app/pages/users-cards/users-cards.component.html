@@ -80,7 +80,7 @@
       <div class="form-group row">
         <label class="col-sm-4 col-form-label">Celular</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="user.username"
+          <input type="text" class="form-control" placeholder="Celular" [(ngModel)]="user.username"
           name="newUsername" formControlName="username" id="username">
         </div>
         <label class="col-sm-4 col-form-label">Nombre</label>
@@ -108,8 +108,6 @@
           <input type="text" class="form-control" placeholder="Cargo" [(ngModel)]="user.uuidJob"
             name="newJob" formControlName="job" id="job">
         </div>
-
-
         <label class="col-sm-4 col-form-label">Rango</label>
         <div class="col-sm-8">          
             <select class="form-control" id="rank" placeholder="Rango" name="newRank" formControlName="rank">
@@ -117,11 +115,9 @@
               <option *ngFor="let rank of ranks">{{rank}}</option>
             </select>
         </div>
-
-
         <label class="col-sm-4 col-form-label">Dependencia</label>
         <div class="col-sm-8">
-          <select class="form-control" id="dependency" placeholder="Rango" name="newDependency" formControlName="dependency">
+          <select class="form-control" id="dependency" placeholder="Dependencia" name="newDependency" formControlName="dependency">
             <option selected>{{user.dependency}}</option>
             <option *ngFor="let dependency of dependencies">{{dependency}}</option>
           </select>
