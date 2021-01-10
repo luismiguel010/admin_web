@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import { UpdateImeiDTO } from '../modals/update-imei-modal/updateImeiDTO'
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError} from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { GLOBAL_IPS } from './global_ips';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service.service'
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UpdateImeiModalService {
+export class UpdateProfileService {
 
   private url_admin: string;
 
-  private urlEndPoint: string = 'updateImei';
+  private urlEndPoint: string = 'updateProfile';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
@@ -37,12 +37,12 @@ export class UpdateImeiModalService {
       return false;
     }
 
-  updateImei(updateImeiDTO: UpdateImeiDTO) : Observable<any> {
-    return this.http.put(this.url_admin + this.urlEndPoint, updateImeiDTO, {headers: this.addAuthorizationHeader()}).pipe(
-      catchError(e => {
-        this.isNotAuthorized(e);
-        return throwError(e);
-      })
-    );
-  }
+    updateProfile(user: User): Observable<any>{
+      return this.http.put(this.url_admin + this.urlEndPoint, user, {headers: this.addAuthorizationHeader()}).pipe(
+        catchError(e => {
+          this.isNotAuthorized(e);
+          return throwError(e);
+        })
+      )
+    }
 }
