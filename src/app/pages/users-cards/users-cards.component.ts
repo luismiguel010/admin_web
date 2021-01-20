@@ -92,13 +92,22 @@ export class UsersCardsComponent implements OnInit {
     if (isEmpty) {
       swal.fire('Campos vacíos', 'Llene todos los campos para actualizar el perfil.', 'warning')
     } else {
-      user.rank = Rank[this.selectedRank];
-      user.dependency = Dependency[this.selectedDependency];
+      if(this.selectedRank == null){
+        this.selectedRank = user.rank;
+        user.dependency = Dependency[this.selectedDependency];
+      }else if(this.selectedDependency == null){
+        this.selectedDependency = user.dependency;
+        user.rank = Rank[this.selectedRank];
+      }else{
+        user.rank = Rank[this.selectedRank];
+        user.dependency = Dependency[this.selectedDependency];
+      }
       this.updateProfileService.updateProfile(user)
         .subscribe(response => {
           this.modalService.dismissAll();
           this.router.navigate(['/users'])
           swal.fire('Usuario actualizado', 'Usuario actualizado con éxito', 'success')
+          window.location.reload();
         }, err => {
           if (err.status = 500) {
             swal.fire('Error al actualizar usuario', 'Error interno en el servidor', 'error')
