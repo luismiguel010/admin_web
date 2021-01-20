@@ -30,6 +30,8 @@ export class UsersCardsComponent implements OnInit {
   ranks: any[];
   public dependency: Dependency;
   dependencies: any[];
+  selectedRank: string;
+  selectedDependency: string;
 
   constructor(protected usersService: UsersService, private updateImeiService: UpdateImeiModalService,
     private fb: FormBuilder, private modalService: NgbModal,
@@ -67,10 +69,7 @@ export class UsersCardsComponent implements OnInit {
   }
 
   public updateImei(username: string): void {
-
     this.updateImeiDTO.username = username;
-
-    console.log(this.updateImeiDTO);
     if (this.updateImeiDTO.username == null || this.updateImeiDTO.newImei == null) {
       swal.fire('Error al actualizar imei', 'Nuevo imei o número de celular vacíos', 'error')
       return;
@@ -89,13 +88,13 @@ export class UsersCardsComponent implements OnInit {
   }
 
   updateProfile(user: User): void {
-    console.log(user);
     const isEmpty = Object.values(user).some(x => (x == null || x == ''));
-    console.log(isEmpty);
     if (isEmpty) {
       swal.fire('Campos vacíos', 'Llene todos los campos para actualizar el perfil.', 'warning')
     } else {
-      this.updateProfileService.updateProfile(this.user)
+      user.rank = Rank[this.selectedRank];
+      user.dependency = Dependency[this.selectedDependency];
+      this.updateProfileService.updateProfile(user)
         .subscribe(response => {
           this.modalService.dismissAll();
           this.router.navigate(['/users'])
@@ -138,7 +137,21 @@ export class UsersCardsComponent implements OnInit {
       backdrop: 'static'
     });
     this.editProfileForm.patchValue({
+      uuidUser: user.uuidUser,
       username: user.username,
+      password: user.password,
+      imeiDevice: user.imeiDevice,
+      name: user.name,
+      lastName: user.lastName,
+      callSing: user.callSing,
+      email: user.email,
+      job: user.job,
+      indicative: user.indicative,
+      rank: user.rank,
+      dependency: user.dependency,
+      typeDevice: user.typeDevice,
+      nameImageProfile: user.nameImageProfile,
+      roleDTOS: user.roleDTO,
     });
   }
 
@@ -163,6 +176,14 @@ export class UsersCardsComponent implements OnInit {
         }
       }
       )
+  }
+
+  getRank(number: number): any{
+    return Rank[number];
+  }
+
+  getDependency(number: number): any{
+    return Dependency[number];
   }
 
 

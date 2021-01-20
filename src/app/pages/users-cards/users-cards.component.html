@@ -17,7 +17,7 @@
               <div class="card">
                 <div class="card-body text-center">
                   <p><img class=" img-fluid" src="{{urlProfile + user.uuidUser}}" alt="card image"></p>
-                  <h4 class="card-title">{{user.rank + " " + user.lastName}}</h4>
+                  <h4 class="card-title">{{getRank(user.rank) + " " + user.lastName}}</h4>
                   <p class="card-text">{{user.name + " " + user.lastName}}</p>
                   <p class="card-text">{{user.username}}</p>
                 </div>
@@ -26,14 +26,16 @@
             <div class="backside">
               <div class="card">
                 <div class="card-body text-center">
-                  <h4 class="card-title">{{user.rank + " " + user.lastName}}</h4>
-                  <p class="card-text">{{user.uuidEmail}}</p>
+                  <h4 class="card-title">{{getRank(user.rank) + " " + user.lastName}}</h4>
+                  <p class="card-text">{{user.email}}</p>
                   <p class="card-text">{{user.typeDevice}}</p>
-                  <p class="card-text">{{user.uuidJob}}</p>
-                  <p class="card-text">{{user.dependency}}</p>
-                  <div class="card-body text-center mt-4">
-                    <button type="button" (click)="openModalUpdate(editUpdateModal, user)" class="btn btn-primary">Actualizar IMEI</button>
-                    <button type="button" (click)="openModalProfile(editProfileModal, user)" class="btn btn-primary">Editar Perfil</button>
+                  <p class="card-text">{{user.job}}</p>
+                  <p class="card-text">{{getDependency(user.dependency)}}</p>
+                  <div>
+                    <td><button type="button" (click)="openModalUpdate(editUpdateModal, user)" class="btn btn-primary"
+                      style="float: right; margin-right: 40px">Actualizar IMEI</button></td>
+                    <td><button type="button" (click)="openModalProfile(editProfileModal, user)" class="btn btn-primary"
+                      style="float: right; margin-right: 0px">Editar Perfil</button></td>
                   </div>
                 </div>
               </div>
@@ -100,25 +102,25 @@
         </div>
         <label class="col-sm-4 col-form-label">Correo Electrónico</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.uuidEmail"
+          <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email"
             name="newEmail" formControlName="email" id="email">
         </div>
         <label class="col-sm-4 col-form-label">Cargo</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" placeholder="Cargo" [(ngModel)]="user.uuidJob"
+          <input type="text" class="form-control" placeholder="Cargo" [(ngModel)]="user.job"
             name="newJob" formControlName="job" id="job">
         </div>
         <label class="col-sm-4 col-form-label">Rango</label>
         <div class="col-sm-8">          
-            <select class="form-control" id="rank" placeholder="Rango" name="newRank" formControlName="rank">
-              <option selected>{{user.rank}}</option>
+            <select class="form-control" id="rank" placeholder="Rango" name="newRank" formControlName="rank" [(ngModel)]="selectedRank">
+              <option selected>{{getRank(user.rank)}}</option>
               <option *ngFor="let rank of ranks">{{rank}}</option>
             </select>
         </div>
         <label class="col-sm-4 col-form-label">Dependencia</label>
         <div class="col-sm-8">
-          <select class="form-control" id="dependency" placeholder="Dependencia" name="newDependency" formControlName="dependency">
-            <option selected>{{user.dependency}}</option>
+          <select class="form-control" id="dependency" placeholder="Dependencia" name="newDependency" formControlName="dependency" [(ngModel)]="selectedDependency">
+            <option selected>{{getDependency(user.dependency)}}</option>
             <option *ngFor="let dependency of dependencies">{{dependency}}</option>
           </select>
         </div>

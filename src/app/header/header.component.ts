@@ -24,7 +24,7 @@ export class HeaderComponent {
 
   logout():void{
     let rank = this.authService.user.rank;
-    let lastname = this.authService.user.lastname;
+    let lastname = this.authService.user.lastName;
     this.authService.logout();
     swal.fire('Logout', `Hasta luego ${rank} ${lastname}`, 'success');
     this.router.navigate(['/login']);

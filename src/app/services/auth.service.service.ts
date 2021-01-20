@@ -68,9 +68,9 @@ export class AuthService {
     this._user.uuidUser = uuidUser;
     this._user.username = payload.user_name;
     this._user.name = name;
-    this._user.lastname = lastname;
+    this._user.lastName = lastname;
     this._user.rank = rank;
-    this._user.role = payload.authorities;
+    this._user.roleDTOS = payload.authorities;
     sessionStorage.setItem('user', JSON.stringify(this._user));
   }
 

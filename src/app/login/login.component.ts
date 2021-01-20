@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if(this.authService.isAuthenticated()){
-      swal.fire('Login', `Hola ${this.authService.user.rank} ${this.authService.user.lastname}, ya estás autenticado`, 'info');
+      swal.fire('Login', `Hola ${this.authService.user.rank} ${this.authService.user.lastName}, ya estás autenticado`, 'info');
       this.router.navigate(['/users']);
       console.log("Enter authService true")
     }
@@ -40,10 +40,10 @@ export class LoginComponent implements OnInit {
       this.authService.saveToken(response.access_token);
       let user = this.authService.user;
       this.router.navigate([('/users')]);
-      if(user.role.includes("ADMIN_USER")){
-      swal.fire('Login', `Hola ${user.rank} ${user.lastname}`, 'success');
+      if(user.roleDTOS.length == 2){
+      swal.fire('Login', `Hola ${user.rank} ${user.lastName}`, 'success');
       }else{
-        swal.fire('Login', `Hola ${user.rank} ${user.lastname}, no eres usuario administrador de Quemes`, 'error'); 
+        swal.fire('Login', `Hola ${user.rank} ${user.lastName}, no eres usuario administrador de Quemes`, 'error'); 
       }
     },err => {
       if(err.status == 400 || err.status == 403){
