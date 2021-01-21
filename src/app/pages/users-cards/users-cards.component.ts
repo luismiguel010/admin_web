@@ -30,8 +30,9 @@ export class UsersCardsComponent implements OnInit {
   ranks: any[];
   public dependency: Dependency;
   dependencies: any[];
-  selectedRank: string;
-  selectedDependency: string;
+  selectedRank: any;
+  selectedDependency: any;
+  isAlreadyConfig: boolean = false;
 
   constructor(protected usersService: UsersService, private updateImeiService: UpdateImeiModalService,
     private fb: FormBuilder, private modalService: NgbModal,
@@ -92,16 +93,7 @@ export class UsersCardsComponent implements OnInit {
     if (isEmpty) {
       swal.fire('Campos vacíos', 'Llene todos los campos para actualizar el perfil.', 'warning')
     } else {
-      if (this.selectedRank == null) {
-        this.selectedRank = user.rank;
-        user.dependency = Dependency[this.selectedDependency];
-      } else if (this.selectedDependency == null) {
-        this.selectedDependency = user.dependency;
-        user.rank = Rank[this.selectedRank];
-      } else {
-        user.rank = Rank[this.selectedRank];
-        user.dependency = Dependency[this.selectedDependency];
-      }
+      user = this.configSelectRankDependency(user); 
       this.updateProfileService.updateProfile(user)
         .subscribe(response => {
           this.modalService.dismissAll();
@@ -193,6 +185,30 @@ export class UsersCardsComponent implements OnInit {
 
   getDependency(number: number): any {
     return Dependency[number];
+  }
+
+  configSelectRankDependency(user: User): User{
+    if(this.selectedDependency != null && this.selectedRank != null){
+      user.rank = Rank[this.selectedRank];
+      user.dependency = Dependency[this.selectedDependency];
+      this.isAlreadyConfig = true;
+     } 
+   if((this.selectedDependency == null && this.selectedRank == null) && !this.isAlreadyConfig){
+       this.selectedDependency = user.dependency;
+       this.selectedRank = user.rank;
+       this.isAlreadyConfig = true;
+     }
+   if ((this.selectedRank == null) && !this.isAlreadyConfig) {
+       this.selectedRank = user.rank;
+       user.dependency = Dependency[this.selectedDependency];
+       this.isAlreadyConfig = true;
+     }
+   if ((this.selectedDependency == null) && !this.isAlreadyConfig) {
+       this.selectedDependency = user.dependency;
+       user.rank = Rank[this.selectedRank];
+       this.isAlreadyConfig = true;
+     } 
+     return user;
   }
 
 
