@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
   <a class="navbar-brand">
     <img src="assets/Logo.png" width="60" height="60" alt="">
   </a>
@@ -10,14 +10,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/users">Inicio</a>
+        <a class="nav-link" style="color:#005E62" routerLink="/users">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/insert_imei_modal" data-toggle="modal"
+        <a class="nav-link" style="color:#005E62" routerLink="/insert_imei_modal" data-toggle="modal"
           data-target="#insertImeiModal">Registrar IMEI</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" style="color:#005E62" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Tablas bases de datos
         </a>
@@ -28,7 +28,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" style="color:#005E62" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Herramientas
         </a>
@@ -46,9 +46,6 @@
         </div>
       </li>
     </ul>
-    <a class="navbar-brand" href="#">
-      <img class="img-fluid" src="{{urlProfile + authService.user.uuidUser}}" alt="card image">
-    </a>
     <ul class="navbar-nav  navbar-right">
       <li class="dropdown">
         <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -56,11 +53,13 @@
           {{authService.user.rank}} {{authService.user.lastName}}
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <button routerLink="/edit_myprofile" class="dropdown-item" type="submit">Actualizar mi perfil</button>
           <button (click)="logout()" class="dropdown-item" type="submit">Cerrar sesión</button>
         </div>
       </li>
     </ul>
+    <a class="navbar-brand" href="#">
+      <img class="img-fluid" src="{{urlProfile + authService.user.uuidUser}}" alt="card image">
+    </a>
   </div>
 </nav>
 
