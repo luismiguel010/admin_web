@@ -92,13 +92,13 @@ export class UsersCardsComponent implements OnInit {
     if (isEmpty) {
       swal.fire('Campos vacíos', 'Llene todos los campos para actualizar el perfil.', 'warning')
     } else {
-      if(this.selectedRank == null){
+      if (this.selectedRank == null) {
         this.selectedRank = user.rank;
         user.dependency = Dependency[this.selectedDependency];
-      }else if(this.selectedDependency == null){
+      } else if (this.selectedDependency == null) {
         this.selectedDependency = user.dependency;
         user.rank = Rank[this.selectedRank];
-      }else{
+      } else {
         user.rank = Rank[this.selectedRank];
         user.dependency = Dependency[this.selectedDependency];
       }
@@ -187,11 +187,11 @@ export class UsersCardsComponent implements OnInit {
       )
   }
 
-  getRank(number: number): any{
+  getRank(number: number): any {
     return Rank[number];
   }
 
-  getDependency(number: number): any{
+  getDependency(number: number): any {
     return Dependency[number];
   }
 

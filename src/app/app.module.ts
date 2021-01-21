@@ -33,6 +33,7 @@ import { UsersRoleComponent } from './pages/databases-tables/users-role/users-ro
 import { UserRolesService } from './services/user-roles.service';
 import { UpdateRoleModalComponent } from './modals/update-role-modal/update-role-modal.component';
 import { UpdateRoleService } from './services/update-role.service';
+import { EditMyprofileComponent } from './pages/edit-myprofile/edit-myprofile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -45,7 +46,8 @@ const routes: Routes = [
   {path: 'update_password_modal', component: UpdatePasswordModalComponent},
   {path: 'users_role', component: UsersRoleComponent},
   {path: 'update_role_modal', component: UpdateRoleModalComponent},
-  {path: 'users_table', component: UsersComponent}
+  {path: 'users_table', component: UsersComponent},
+  {path: 'edit_myprofile', component: EditMyprofileComponent}
 ];
 
 @NgModule({
@@ -68,6 +70,7 @@ const routes: Routes = [
     UpdatePasswordModalComponent,
     UsersRoleComponent,
     UpdateRoleModalComponent,
+    EditMyprofileComponent,
   ],
   imports: [
     BrowserModule,

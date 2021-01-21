@@ -56,6 +56,7 @@
           {{authService.user.rank}} {{authService.user.lastName}}
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <button routerLink="/edit_myprofile" class="dropdown-item" type="submit">Actualizar mi perfil</button>
           <button (click)="logout()" class="dropdown-item" type="submit">Cerrar sesión</button>
         </div>
       </li>
