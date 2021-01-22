@@ -34,6 +34,7 @@ import { UserRolesService } from './services/user-roles.service';
 import { UpdateRoleModalComponent } from './modals/update-role-modal/update-role-modal.component';
 import { UpdateRoleService } from './services/update-role.service';
 import { EditMyprofileComponent } from './pages/edit-myprofile/edit-myprofile.component';
+import { ExcelService } from './services/excel.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -90,7 +91,8 @@ const routes: Routes = [
     ImeisListService,
     UpdatePasswordModalService,
     UserRolesService,
-    UpdateRoleService
+    UpdateRoleService,
+    ExcelService
   ],
   bootstrap: [AppComponent]
 })

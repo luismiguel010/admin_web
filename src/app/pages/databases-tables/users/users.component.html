@@ -15,7 +15,9 @@
         <div class="card" style="width: 69rem;">
           <div class="card-body">
             <h5 class="card-title">Usuarios Registrados</h5>
-        
+            <button (click)="exportAsXLSX()" class="btn btn-primary">
+              <i class="fa fa-file-excel-o" style="font-size:18px;color:white"></i> Exportar tabla a Excel</button>
+              <p></p>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -41,8 +43,8 @@
                             <td>{{user.callSing}}</td>
                             <td>{{user.email}}</td>
                             <td>{{user.job}}</td>
-                            <td>{{user.rank}}</td>
-                            <td>{{user.dependency}}</td>
+                            <td>{{getRank(user.rank)}}</td>
+                            <td>{{getDependency(user.dependency)}}</td>
                             <td>{{user.typeDevice}}</td>
                         </tr>
                     </tbody>
