@@ -29,7 +29,8 @@ export class UpdatePasswordModalComponent implements OnInit {
 
     this.updatePasswordService.updatePassword(this.updatePasswordDTO)
       .subscribe(response => {
-        this.router.navigate(['/users'])
+        //this.router.navigate(['/users'])
+        window.location.reload();
         swal.fire('Contraseña actualizada', 'Contraseña actualizado con éxito', 'success')
       },err => {
         if(err.status == 500){

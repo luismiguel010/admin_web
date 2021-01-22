@@ -24,3 +24,9 @@
     height: 60px;
     border-radius: 50%;
 }
+
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }

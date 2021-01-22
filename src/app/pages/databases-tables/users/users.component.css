@@ -1,3 +1,11 @@
+#team {
+    background: #005E62 !important;
+}
+
+.table-row {
+    height: 30px !important;
+  }
+
 .btn-secondary{
     background-color: grey;
     border-bottom-color: grey;

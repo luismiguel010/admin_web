@@ -1,0 +1,59 @@
+<section id="team" class="pb-5">
+  <p style="background-color:#005E62;">&nbsp;</p>
+    <div class="container">
+
+        <p></p>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Buscar Usuario</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+            name="filterUser" [(ngModel)]="filterUser">
+          </div>
+      
+      <div class="row justify-content-center">
+        <div class="card" style="width: 69rem;">
+          <div class="card-body">
+            <h5 class="card-title">Usuarios Registrados</h5>
+            <button (click)="exportAsXLSX()" class="btn btn-primary">
+              <i class="fa fa-file-excel-o" style="font-size:18px;color:white"></i> Exportar tabla a Excel</button>
+              <p></p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Número del celular</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Sobrenombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Trabajo</th>
+                            <th scope="col">Rango</th>
+                            <th scope="col">Dependencia</th>
+                            <th scope="col">Tipo de dispositivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users | filterUsers:filterUser">
+                            <td>{{user.uuidUser}} </td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.name}} </td>
+                            <td>{{user.lastName}}</td>
+                            <td>{{user.callSing}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.job}}</td>
+                            <td>{{getRank(user.rank)}}</td>
+                            <td>{{getDependency(user.dependency)}}</td>
+                            <td>{{user.typeDevice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    
+    </section>

@@ -1,0 +1,64 @@
+<section id="team" class="pb-5">
+    <p style="background-color:#005E62;">&nbsp;</p>
+    <div class="container">
+        <p></p>
+        <div class="card" style="width: 69rem;">
+            <div class="card-body">
+                <p></p>
+                <form [formGroup]="editProfileForm" (ngSubmit)="onSubmitProfile()">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Celular</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Celular" [(ngModel)]="user.username"
+                                name="newUsername" formControlName="username" id="username">
+                        </div>
+                        <label class="col-sm-4 col-form-label">Nombre</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="user.name"
+                                name="newName" formControlName="name" id="name">
+                        </div>
+                        <label class="col-sm-4 col-form-label">Apellido</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="user.lastName"
+                                name="newLastname" formControlName="lastname" id="lastname">
+                        </div>
+                        <label class="col-sm-4 col-form-label">Sobrenombre</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Sobrenombre"
+                                [(ngModel)]="user.callSing" name="newCallSing" formControlName="callSing" id="callSing">
+                        </div>
+                        <label class="col-sm-4 col-form-label">Correo Electrónico</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email"
+                                name="newEmail" formControlName="email" id="email">
+                        </div>
+                        <label class="col-sm-4 col-form-label">Cargo</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Cargo" [(ngModel)]="user.job"
+                                name="newJob" formControlName="job" id="job">
+                        </div>
+                        <label class="col-sm-4 col-form-label">Rango</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="rank" placeholder="Rango" name="newRank"
+                                formControlName="rank" [(ngModel)]="selectedRank">
+                                <option selected>{{getRank(user.rank)}}</option>
+                                <option *ngFor="let rank of ranks">{{rank}}</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-4 col-form-label">Dependencia</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="dependency" placeholder="Dependencia" name="newDependency"
+                                formControlName="dependency" [(ngModel)]="selectedDependency">
+                                <option selected>{{getDependency(user.dependency)}}</option>
+                                <option *ngFor="let dependency of dependencies">{{dependency}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <button role="button" class="btn btn-primary">Actualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

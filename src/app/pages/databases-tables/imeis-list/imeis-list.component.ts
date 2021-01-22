@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Imei } from './imei';
-import { ImeisListService } from '../../services/imeis-list.service';
-import { DeleteImeiModalService } from '../../services/delete-imei-modal.service';
+import { ImeisListService } from '../../../services/imeis-list.service';
+import { DeleteImeiModalService } from '../../../services/delete-imei-modal.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-imeis-list-modal',
-  templateUrl: './imeis-list-modal.component.html',
-  styleUrls: ['./imeis-list-modal.component.css']
+  selector: 'app-imeis-list',
+  templateUrl: './imeis-list.component.html',
+  styleUrls: ['./imeis-list.component.css']
 })
-export class ImeisListModalComponent implements OnInit {
+export class ImeisListComponent implements OnInit{
 
   imeis: any[] = [];
 
@@ -19,9 +19,10 @@ export class ImeisListModalComponent implements OnInit {
   constructor(protected imeiListService: ImeisListService, 
     private imeiService: DeleteImeiModalService, private router: Router) { }
 
-    filterImei = '';
+  filterImei = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
+    console.log("onInit");
     this.imeiListService.getImeiList()
     .subscribe(
     (imeis) => {
@@ -42,7 +43,8 @@ export class ImeisListModalComponent implements OnInit {
 
     this.imeiService.deleteImei(this.imei)
     .subscribe(response => {
-        this.router.navigate(['/users'])
+        //this.router.navigate(['/users'])
+        this.refresh();
         swal.fire('Imei deleted', 'Imei deleted with success','success')
         this.ngOnInit();
       }, err => {
@@ -51,6 +53,10 @@ export class ImeisListModalComponent implements OnInit {
         }
       }
     )
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 }

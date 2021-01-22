@@ -46,4 +46,13 @@ export class UsersService {
     );
   }
 
+  getUserById(uuidUser: string): Observable<any>{
+    return this.http.get(this.url_audit + 'getUserById/'+uuidUser, {headers: this.addAuthorizationHeader()}).pipe(
+      catchError(e => {
+        this.isNotAuthorized(e);
+        return throwError(e);
+      })
+    )
+  }
+
 }

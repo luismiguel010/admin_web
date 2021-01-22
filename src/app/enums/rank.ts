@@ -1,0 +1,20 @@
+export enum Rank {
+    Selection,
+    GR,
+    MG,
+    BG,
+    CR,
+    TC,
+    MY,
+    CT,
+    TE,
+    ST,
+    TJC,
+    TJ,
+    TS,
+    T1,
+    T2,
+    T3,
+    T4,
+    AT
+  }

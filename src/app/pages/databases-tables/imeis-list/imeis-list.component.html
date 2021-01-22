@@ -1,0 +1,41 @@
+<section id="team" class="pb-5">
+  <p style="background-color:#005E62;">&nbsp;</p>
+<div class="container">
+
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Buscar IMEI</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+    name="filterImei" [(ngModel)]="filterImei">
+</div>
+  
+  <div class="row justify-content-center">
+    <div class="card" style="width: 69rem;">
+      <div class="card-body">
+        <h5 class="card-title">Imeis Registrados</h5>
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let imei of imeis | filterImeis:filterImei">
+              <td>{{imei.imeiDevice}}</td>
+              <td><button role="button" (click)="deleteImei(imei)" class="btn btn-primary">Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+

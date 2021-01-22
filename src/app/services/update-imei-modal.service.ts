@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { UpdateImeiDTO } from '../modals/update-imei-modal/updateImeiDTO'
 import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpRequest, HttpEvent } from '@angular/common/http';
-import { map, catchError, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError} from 'rxjs/operators';
 import { GLOBAL_IPS } from './global_ips';
 import { Router } from '@angular/router';
-import swal from 'sweetalert2'
 import { AuthService } from '../services/auth.service.service'
 
 @Injectable({
