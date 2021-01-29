@@ -73,7 +73,7 @@
 <ng-template #editProfileModal let-modal>
   <div class="modal-header">
     <h5 class="modal-title" id="editProfileLabel">Actualizar Datos de {{getRank(user.rank) + " " + user.lastName}}</h5>
-    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+    <button type="button" class="close" (click)="modal.dismiss()" (click)="clearUserProfile()" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>

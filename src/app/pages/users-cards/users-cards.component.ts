@@ -211,6 +211,10 @@ export class UsersCardsComponent implements OnInit {
      return user;
   }
 
+  clearUserProfile(): void{
+    this.user = new User();
+  }
+
 
 
 }
